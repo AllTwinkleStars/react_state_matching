@@ -1,0 +1,33 @@
+.tileSelector {
+  color: var(--RED);
+  display: flex;
+  font-family: PressStart2PRegular;
+  font-size: 2vh;
+  height: 4vh;
+  line-height: 4vh;
+  margin: auto;
+  margin-top: 24px;
+  width: 20vw;
+}
+
+.number:hover {
+  color: var(--MAGENTA);
+}
+
+.tileSelectorDropdown {
+  width: 3vw;
+  background-color: var(--BLACK);
+  margin-left: 12px;
+}
+
+.tileSelectorDropdown:hover {
+  cursor: pointer;
+}
+
+.tileSelectorContent {
+  position: absolute;
+  background-color: var(--BLACK);
+  width: 3vw;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}

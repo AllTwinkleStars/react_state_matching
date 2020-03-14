@@ -1,0 +1,20 @@
+button {
+  position: absolute;
+  margin-top: 28px;
+  margin-left: -4vw;
+  font-family: PressStart2PRegular;
+  font-size: calc(10px + 1vmin);
+  color: var(--BLACK);
+  border: 0;
+  min-height: 4vh;
+  min-width: 8vw;
+  background-color: var(--ORANGE);
+  transition: background-color .15s, min-height .15s, min-width .15s, margin-left .15s;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--RED);
+  transform: translateY(-3px);
+  transform: scaleX(1.1) scaleY(1.1);
+}

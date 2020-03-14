@@ -1,0 +1,7 @@
+.Tile {
+  background-color: var(--ROYAL);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

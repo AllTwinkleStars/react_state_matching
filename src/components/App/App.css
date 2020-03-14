@@ -1,0 +1,30 @@
+:root {
+  --RED: #FF3864;
+  --BG: #0D0221;
+  --BLACK: #161616;
+  --PURPLE: #261447;
+  --BLUE: #2DE2E6;
+  --ORANGE: #FF6C11;
+  --MAGENTA: #F706CF;
+  --ROYAL: #791E94;
+  --DARK: #2E2157;
+}
+
+.App {
+  text-align: center;
+  background-color: var(--BG);
+  min-height: 100vh;
+}
+
+
+.App-header {
+  background-color: var(--PURPLE);
+  min-height: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: PressStart2PRegular;
+  font-size: calc(10px + 3vmin);
+  color: var(--RED);
+}
