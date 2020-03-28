@@ -11,19 +11,10 @@ describe('OptionsPanel', () => {
 
   it('Passes props to the TileSelector @pass-props-to-tile-selector', () => {
     const tileSelectorProps = wrapper.find(TileSelector).props()
+    const buttonProps = wrapper.find(Button).props()
 
     expect(tileSelectorProps.numTiles, 'Did you pass the numTiles prop to TileSelector?').toEqual(42)
-  })
-
-  it('Passes props to the Button @pass-props-to-tile-selector', () => {
-    const buttonProps = wrapper.find(Button).props()
-
     expect(buttonProps.playing, 'Did you pass the playing prop to Board?').toEqual(true)
-  })
-
-  it('Passes props to the Button @pass-props-to-tile-selector', () => {
-    const buttonProps = wrapper.find(Button).props()
-
     expect(typeof buttonProps.startGame, 'Did you pass the startGame prop to the Button?').toEqual('function')
   })
 })
