@@ -11,7 +11,7 @@ describe('Board', () => {
   const tiles = createTiles(12)
   const wrapper = shallow(<Board tiles={tiles} />)
 
-  it('Passes props from the board to tiles @rpass-board-props-to-tiles', () => {
+  it('Passes props from the board to tiles @pass-board-props-to-tiles', () => {
 
     const firstTileProps = wrapper.find(Tile).at(0).props()
     const firstTileKey = wrapper.find(Tile).at(0).key()
