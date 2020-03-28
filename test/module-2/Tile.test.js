@@ -7,28 +7,27 @@ import { shallow } from 'enzyme'
 
 describe('Tile', () => {
 
-  it('Uses the default background color when selected and matched are false @dynamic-tile-color', () => {
-    const [tile1, tile2] = createTiles(2)
-    const wrapper = shallow(<Tile {...tile1} />)
+  it('Dynamically changes the tile color @dynamic-tile-color', () => {
+    // Uses the default background color when selected and matched are false 
+    let [tile1, tile2] = createTiles(2)
+    let wrapper = shallow(<Tile {...tile1} />)
 
     expect(wrapper.props().style, 'Did you pass an inline style to the tile?').toEqual(null)
-  })
 
-  it('Uses the configs background color when selected is true @dynamic-tile-color', () => {
-    const [tile1, tile2] = createTiles(2)
+    // Uses the configs background color when selected is true 
+    [tile1, tile2] = createTiles(2)
     tile1.selected = true
-    const wrapper = shallow(<Tile {...tile1} />)
-    const style = wrapper.props().style
+    wrapper = shallow(<Tile {...tile1} />)
+    let style = wrapper.props().style
 
     expect(typeof style, 'Did you pass an inline style to the tile?').toEqual('object')
     expect(style.backgroundColor, 'Did you set the right property in your style?').toContain('#')
-  })
 
-  it('Uses the configs background color when matched is true @dynamic-tile-color', () => {
-    const [tile1, tile2] = createTiles(2)
+    // Uses the configs background color when matched is true 
+    [tile1, tile2] = createTiles(2)
     tile1.matched = true
-    const wrapper = shallow(<Tile {...tile1} />)
-    const style = wrapper.props().style
+    wrapper = shallow(<Tile {...tile1} />)
+    style = wrapper.props().style
 
     expect(typeof style, 'Did you pass an inline style to the tile?').toEqual('object')
     expect(style.backgroundColor, 'Did you set the right property in your style?').toContain('#')
