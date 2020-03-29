@@ -4,7 +4,7 @@ import './TileSelector.css'
 const TileSelector = () => {
 
 
-  const dropDown = (
+  const dropdown = (
         <div className='tileSelectorContent' >
           <div className='number'>4</div>
           <div className='number'>16</div>
@@ -16,7 +16,7 @@ const TileSelector = () => {
    <div className='tileSelector'>
      <div>Number of Tiles</div>
      <div className='tileSelectorDropdown'>
-       {dropDown}
+       {dropdown}
      </div>
    </div>
  )
