@@ -9,24 +9,24 @@ describe('Tile', () => {
 
   it('Dynamically changes the tile color @dynamic-tile-color', () => {
     // Uses the default background color when selected and matched are false 
-    let [tile1, tile2] = createTiles(2)
+    const [tile1, tile2] = createTiles(2)
     let wrapper = shallow(<Tile {...tile1} />)
 
     expect(wrapper.props().style, 'Did you pass an inline style to the tile?').toEqual(null)
 
     // Uses the configs background color when selected is true 
-    [tile1, tile2] = createTiles(2)
-    tile1.selected = true
-    wrapper = shallow(<Tile {...tile1} />)
+    const [tile3, tile4] = createTiles(2)
+    tile3.selected = true
+    wrapper = shallow(<Tile {...tile3} />)
     let style = wrapper.props().style
 
     expect(typeof style, 'Did you pass an inline style to the tile?').toEqual('object')
     expect(style.backgroundColor, 'Did you set the right property in your style?').toContain('#')
 
     // Uses the configs background color when matched is true 
-    [tile1, tile2] = createTiles(2)
-    tile1.matched = true
-    wrapper = shallow(<Tile {...tile1} />)
+    const [tile5, tile6] = createTiles(2)
+    tile5.matched = true
+    wrapper = shallow(<Tile {...tile5} />)
     style = wrapper.props().style
 
     expect(typeof style, 'Did you pass an inline style to the tile?').toEqual('object')
@@ -49,11 +49,9 @@ describe('Tile', () => {
 
     if(svg1.length === 1 && svg2.length === 1) {
 
-      console.log('GOTHERE')
 
       const [tile1, tile2] = createTiles(2)
       const wrapper = shallow(<Tile {...tile1} />)
-      console.log(wrapper.children())
 
       return expect(wrapper.children(), 'Did you pass null as a child to the `tile` `<div>`?').toHaveLength(0)
     }
