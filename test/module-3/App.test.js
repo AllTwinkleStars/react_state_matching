@@ -37,7 +37,6 @@ describe('App', () => {
   })
 
   it('handles matched tiles @handle-matched-tile', () => {
-    const setStateSpy = jest.spyOn(App.prototype, 'setState')
     const wrapper = shallow(<App />)
     const instance = wrapper.instance()
     instance.startGame(10)
@@ -62,7 +61,6 @@ describe('App', () => {
   })
 
   it('handles mismatched tiles @handle-mismatched-tile', () => {
-    const setStateSpy = jest.spyOn(App.prototype, 'setState')
     const wrapper = shallow(<App />)
     const instance = wrapper.instance()
     instance.startGame(10)
