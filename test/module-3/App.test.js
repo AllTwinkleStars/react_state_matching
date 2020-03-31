@@ -32,7 +32,8 @@ describe('App', () => {
     const tiles = instance.state.tiles
     instance.handleTileClicked(tiles[5].id, tiles[5].color)
 
-    expect(setStateSpy).toHaveBeenCalledWith({ previousTileIndex: 5, tiles, toBeCleared: null})
+    expect(setStateSpy, 'Did you set the previousTileIndex to the selectedTileIndex?')
+      .toHaveBeenCalledWith({ previousTileIndex: 5, tiles, toBeCleared: null})
 
   })
 
