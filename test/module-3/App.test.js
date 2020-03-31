@@ -75,8 +75,9 @@ describe('App', () => {
 
 
     tiles = instance.state.tiles
-    expect(instance.state.toBeCleared).toEqual([tiles[0], tiles[5]])
-    expect(instance.state.previousTileIndex).toBe(null)
+    expect(instance.state.toBeCleared, 'Did you add the previous and selected tiles to toBeCleared?')
+      .toEqual([tiles[0], tiles[5]])
+    expect(instance.state.previousTileIndex, 'Did you set the previousTileIndex to nulll?').toBe(null)
 
   })
 
