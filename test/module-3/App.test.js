@@ -60,4 +60,25 @@ describe('App', () => {
     expect(tiles[matchingPreviousTileIndex].matched, 'Did you set the matched property of the previous tile to true?').toBe(true)
     expect(instance.state.previousTileIndex).toBe(null)
   })
+
+  it('handles mismatched tiles @handle-mismatched-tile', () => {
+    const setStateSpy = jest.spyOn(App.prototype, 'setState')
+    const wrapper = shallow(<App />)
+    const instance = wrapper.instance()
+    instance.startGame(10)
+
+    let tiles = instance.state.tiles
+
+    const selectedTile = tiles[5]
+
+    instance.setState({previousTileIndex: 0})
+
+    instance.handleTileClicked(selectedTile.id, selectedTile.color)
+
+
+    tiles = instance.state.tiles
+    expect(instance.state.toBeCleared).toEqual([tiles[0], tiles[5]])
+    expect(instance.state.previousTileIndex).toBe(null)
+
+  })
 })
