@@ -15,7 +15,7 @@ describe('App', () => {
     expect(instance.state.tiles, 'Did you set tiles on state?').toEqual([])
     expect(instance.state.numTiles,'Did you set numTiles on state?').toEqual(36)
     expect(instance.state.playing, 'Did you set playing on state?').toEqual(false)
-    expect(instance.state.previousTile, 'Did you set previousTile on state?').toBeNull()
+    expect(instance.state.previousTileIndex, 'Did you set previousTileIndex on state?').toBeNull()
     expect(instance.state.toBeCleared, 'Did you set toBeCleared on state?').toBeNull()
   })
 
@@ -40,7 +40,7 @@ describe('App', () => {
       playing: false,
       numTiles: 8,
       toBeCleared: [1,2,3],
-      previousTile: 6
+      previousTileIndex: 6
     })
 
     const instance = wrapper.instance()
@@ -49,7 +49,7 @@ describe('App', () => {
 
     expect(instance.state.tiles, 'Did you call the createTiles function?').toHaveLength(8)
     expect(instance.state.playing, 'Did you set playing on state?').toEqual(true)
-    expect(instance.state.previousTile, 'Did you set previousTile on state?').toBeNull()
+    expect(instance.state.previousTileIndex, 'Did you set previousTileIndex on state?').toBeNull()
     expect(instance.state.toBeCleared, 'Did you set toBeCleared on state?').toBeNull()
     
   })
