@@ -79,4 +79,28 @@ describe('App', () => {
     expect(instance.state.previousTileIndex).toBe(null)
 
   })
+
+  it('clears mismatched tiles @clear-mismatched-tiles', () => {
+    const wrapper = shallow(<App />)
+    const instance = wrapper.instance()
+    instance.startGame(10)
+
+    instance.setState((state) => {
+      const tiles = state.tiles
+      tiles[0].selected = true
+      tiles[1].selected = true
+
+      const toBeCleared = [tiles[0], tiles[1]]
+      return { tiles, toBeCleared, previousTileIndex: null }
+    })
+
+    const tiles = instance.state.tiles
+    instance.handleTileClicked(tiles[3].id, tiles[3].color)
+
+    expect(instance.state.toBeCleared, 'Did you set toBeCleared to null?').toBe(null)
+    expect(tiles[0].selected, 'Did you remember to set the first tile in toBeSelected selected property to false?')
+      .toBe(false)
+    expect(tiles[1].selected, 'Did you remember to set the second tile in toBeSelected selected property to false?')
+      .toBe(false)
+  })
 })
