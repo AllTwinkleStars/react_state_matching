@@ -20,7 +20,7 @@ describe('App', () => {
     const instance = wrapper.instance()
     instance.handleTileClicked()
 
-    expect(setStateSpy).toHaveBeenCalledWith({ tiles: [], toBeCleared: null})
+    expect(setStateSpy, 'Did you call setState with the correct values?').toHaveBeenCalledWith({ tiles: [], toBeCleared: null})
   })
 
   it('sets the selected tile as the previous tile if its null @find-the-selected-tile', () => {
