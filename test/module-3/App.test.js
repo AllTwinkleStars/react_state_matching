@@ -71,16 +71,15 @@ describe('App', () => {
 
     let tiles = instance.state.tiles
 
-    const selectedTile = tiles[5]
 
     instance.setState({previousTileIndex: 0})
 
-    instance.handleTileClicked(selectedTile.id, selectedTile.color)
+    instance.handleTileClicked(tiles[5].id, tiles[5].color)
 
 
     tiles = instance.state.tiles
     expect(instance.state.toBeCleared, 'Did you add the previous and selected tiles to toBeCleared?')
-      .toEqual([tiles[0], tiles[5]])
+      .toEqual([0,5])
     expect(instance.state.previousTileIndex, 'Did you set the previousTileIndex to nulll?').toBe(null)
 
   })
@@ -95,11 +94,12 @@ describe('App', () => {
       tiles[0].selected = true
       tiles[1].selected = true
 
-      const toBeCleared = [tiles[0], tiles[1]]
+      const toBeCleared = [0, 1]
       return { tiles, toBeCleared, previousTileIndex: null }
     })
 
     const tiles = instance.state.tiles
+    console.log(instance.state.toBeCleared)
     instance.handleTileClicked(tiles[3].id, tiles[3].color)
 
     expect(instance.state.toBeCleared, 'Did you set toBeCleared to null?').toBe(null)
