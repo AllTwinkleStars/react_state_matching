@@ -18,9 +18,12 @@ describe('App', () => {
     const setStateSpy = jest.spyOn(App.prototype, 'setState')
     const wrapper = shallow(<App />)
     const instance = wrapper.instance()
-    instance.handleTileClicked()
+    instance.setState({tiles: [{id: 1, color: '#'}]})
+    const tiles = instance.state.tiles
+    instance.handleTileClicked(tiles[0].id, tiles[0].color)
 
-    expect(setStateSpy, 'Did you call setState with the correct values?').toHaveBeenCalledWith({ tiles: [], toBeCleared: null})
+    expect(setStateSpy.mock.calls[1][0].toBeCleared, 'Did you call setState with the correct values?').toBe(null)
+    expect(setStateSpy.mock.calls[1][0].tiles, 'Did you call setState with the correct values?').toEqual(expect.any(Array))
   })
 
   it('sets the selected tile as the previous tile if its null @find-the-selected-tile', () => {
@@ -105,4 +108,16 @@ describe('App', () => {
     expect(tiles[1].selected, 'Did you remember to set the second tile in toBeSelected selected property to false?')
       .toBe(false)
   })
+
+  it('sets the clicked tile to selected @selected-tile', () => {
+    const wrapper = shallow(<App />)
+    const instance = wrapper.instance()
+    instance.startGame(10)
+
+    const tiles = instance.state.tiles
+    instance.handleTileClicked(tiles[3].id, tiles[3].color)
+
+    expect(tiles[3].selected, 'Did you set the selected property on the clicked tile?').toBe(true)
+  })
+    
 })
