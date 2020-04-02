@@ -9,7 +9,7 @@ describe('App', () => {
   const wrapper = shallow(<App />)
   const instance = wrapper.instance()
 
-  it('Has a handleTileClicked method @crate-handle-tile-clicked', () => {
+  it('Has a handleTileClicked method @create-handle-tile-clicked', () => {
     expect(typeof instance.handleTileClicked, 'Did you create the handleTileClicked method on App?')
       .toEqual('function')
   })
