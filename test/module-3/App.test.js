@@ -99,7 +99,6 @@ describe('App', () => {
     })
 
     const tiles = instance.state.tiles
-    console.log(instance.state.toBeCleared)
     instance.handleTileClicked(tiles[3].id, tiles[3].color)
 
     expect(instance.state.toBeCleared, 'Did you set toBeCleared to null?').toBe(null)
