@@ -127,4 +127,5 @@ describe('App', () => {
     const tiles = instance.state.tiles
 
     expect(typeof tiles[3].handleTileClicked, 'Did you set the selected property on the clicked tile?').toBe('function')
+  })
 })
