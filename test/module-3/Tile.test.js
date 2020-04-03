@@ -14,7 +14,7 @@ describe('Tile', () => {
     
     wrapper.simulate('click')
 
-    expect(mockFn).toHaveBeenCalledWith(3, '#C0FFEE')
+    expect(mockFn, 'Did you pass the handleTileClick function to the onClick attribute?').toHaveBeenCalledWith(3, '#C0FFEE')
   })
 
 })
