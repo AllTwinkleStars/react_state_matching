@@ -119,4 +119,12 @@ describe('App', () => {
     expect(tiles[3].selected, 'Did you set the selected property on the clicked tile?').toBe(true)
   })
     
+  it('attaches the handleTileClicked method to the tiles in the array @handle-tile-clicked-array', () => {
+    const wrapper = shallow(<App />)
+    const instance = wrapper.instance()
+    instance.startGame(10)
+
+    const tiles = instance.state.tiles
+
+    expect(typeof tiles[3].handleTileClicked, 'Did you set the selected property on the clicked tile?').toBe('function')
 })
