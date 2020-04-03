@@ -2,7 +2,8 @@ import * as React from "react";
 
 function SvgAjSimpleVhsTape(props) {
   return (
-    <svg viewBox="0 0 340.95 177.36" width="1em" height="1em" {...props}>
+    <svg viewBox="0 0 340.95 177.36" width="1em" height="1em" {...props} style={{fontSize: '4em'}}>
+
       <g transform="translate(-16.499 -5.07)">
         <rect
           transform="translate(1.474 -104.01)"

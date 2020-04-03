@@ -2,7 +2,8 @@ import * as React from "react";
 
 function SvgJicJacSpikeStarFrame(props) {
   return (
-    <svg viewBox="0 0 639.35 653.93" width="1em" height="1em" {...props}>
+    <svg viewBox="0 0 639.35 653.93" width="1em" height="1em" {...props} style={{fontSize: '4em'}}>
+
       <g transform="translate(-.001 -410.38) scale(1.6021)">
         <g stroke="#000" strokeLinecap="round" fill="none">
           <path

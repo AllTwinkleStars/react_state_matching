@@ -7,6 +7,7 @@ function SvgLowPolyHumanMaleWireframe(props) {
       width="1em"
       height="1em"
       {...props}
+      style={{fontSize: '4em'}}
     >
       <g fill="none" stroke="#000" strokeWidth={0.5}>
         <path d="M1280 400.058V298.349l92.193 88.927zM1187.807 387.276L1280 298.349v101.709z" />

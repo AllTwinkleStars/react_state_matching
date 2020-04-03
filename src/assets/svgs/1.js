@@ -2,7 +2,8 @@ import * as React from "react";
 
 function Svg3DWireframeSphere(props) {
   return (
-    <svg viewBox="0 0 1803 1803" height="1em" width="1em" {...props}>
+    <svg viewBox="0 0 1803 1803" height="1em" width="1em" {...props} style={{fontSize: '4em'}}>
+
       <g strokeWidth={3} fill="none" stroke="#000">
         <path d="M901.226 1801.5a15.706 900 .017 01-13.465-450.004 15.706 900 .017 01.274-900A15.706 900 .017 01901.775 1.5" />
         <path d="M899.237 1801.497a128.347 900 .144 01-110.02-450.278 128.347 900 .144 012.263-899.997A128.347 900 .144 01903.763 1.502" />
