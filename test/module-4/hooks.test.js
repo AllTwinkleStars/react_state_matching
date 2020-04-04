@@ -3,10 +3,13 @@ import useHover from '../../src/hooks'
 
 describe('Building a custom hook', () => {
 
+  const setHovered = jest.fn()
+
   React.useRef = jest.fn()
   React.useRef.mockReturnValue('ref')
   React.useState = jest.fn()
-  React.useState.mockReturnValue(['hovered', 'setHovered'])
+  React.useState.mockReturnValue(['hovered', setHovered])
+  React.useEffect = jest.fn()
 
   it('useHover @create-use-hover', () => {
     expect(typeof useHover, 'Did you remember to export useHover?').toBe('function')
@@ -19,7 +22,6 @@ describe('Building a custom hook', () => {
   })
 
   it('calls useState @use-state-hook', () => {
-
     useHover()
 
     expect(React.useState).toHaveBeenCalledWith(false)
@@ -30,5 +32,9 @@ describe('Building a custom hook', () => {
 
     expect(ref).toEqual('ref')
     expect(hovered).toEqual('hovered')
+  })
+
+  it('calls useEffect @call-use-effect', () => {
+    expect(React.useEffect).toHaveBeenCalledWith(expect.any(Function))
   })
 })
