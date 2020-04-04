@@ -24,4 +24,11 @@ describe('Building a custom hook', () => {
 
     expect(React.useState).toHaveBeenCalledWith(false)
   })
+
+  it('returns the ref and hovered state @return-ref', () => {
+    const [ref, hovered] = useHover()
+
+    expect(ref).toEqual('ref')
+    expect(hovered).toEqual('hovered')
+  })
 })
