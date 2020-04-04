@@ -71,5 +71,15 @@ describe('Building a custom hook', () => {
     const enter = mockRef.current.addEventListener.mock.calls[0][1]
     expect(mockRef.current.addEventListener).toHaveBeenCalledWith('mouseenter', expect.any(Function))
     expect(enter.name).toBe('enter')
+    enter()
+    expect(setHovered).toHaveBeenCalledWith(true)
+  })
+
+  it('creates a callback for mouseleave @leave-callback', () => {
+    const leave = mockRef.current.addEventListener.mock.calls[1][1]
+    expect(mockRef.current.addEventListener).toHaveBeenCalledWith('mouseleave', expect.any(Function))
+    expect(leave.name).toBe('leave')
+    leave()
+    expect(setHovered).toHaveBeenCalledWith(false)
   })
 })
