@@ -35,6 +35,8 @@ describe('Building a custom hook', () => {
   })
 
   it('calls useEffect @call-use-effect', () => {
+    useHover()
+
     expect(React.useEffect).toHaveBeenCalledWith(expect.any(Function))
   })
 })
