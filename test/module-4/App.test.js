@@ -11,7 +11,7 @@ describe('App', () => {
   const instance = wrapper.instance()
 
 
-  it('Creates the handNumTileChange method @hande-num-tile-change', () => {
+  it('Creates the handNumTileChange method @handle-num-tile-change', () => {
     const wrapper = shallow(<App />)
     wrapper.setState({
       tiles: [1,2],
