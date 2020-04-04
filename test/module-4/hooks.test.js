@@ -39,4 +39,13 @@ describe('Building a custom hook', () => {
 
     expect(React.useEffect).toHaveBeenCalledWith(expect.any(Function))
   })
+
+  it('returns an anonymous fn @return-anon', () => {
+
+    const anon = React.useEffect.mock.calls[0][0]
+    const anotherAnon = anon()
+
+    expect(typeof anotherAnon).toBe('function')
+    expect(anotherAnon.name).toBe('')
+  })
 })
