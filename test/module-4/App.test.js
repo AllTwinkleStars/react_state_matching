@@ -25,9 +25,9 @@ describe('App', () => {
 
     instance.handleNumTileChange(14)
 
-    expect(instance.state.numTiles, '').toBe(14)
-    expect(instance.state.playing, '').toBe(false)
-    expect(instance.state.tiles, '').toHaveLength(0)
+    expect(instance.state.numTiles, 'Did you set the correct state in handleNumTileChange?').toBe(14)
+    expect(instance.state.playing,  'Did you set the correct state in handleNumTileChange?').toBe(false)
+    expect(instance.state.tiles,  'Did you set the correct state in handleNumTileChange?').toHaveLength(0)
     
   })
 
