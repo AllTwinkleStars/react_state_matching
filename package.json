@@ -12,7 +12,8 @@
     "build": "webpack --mode development --config webpack.config.js",
     "test": "jest",
     "test:module-2": "jest test/module-2/",
-    "test:module-3": "jest test/module-3/"
+    "test:module-3": "jest test/module-3/",
+    "test:module-4": "jest test/module-4/"
   },
   "eslintConfig": {
     "extends": "react-app"
