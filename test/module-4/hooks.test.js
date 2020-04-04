@@ -62,4 +62,8 @@ describe('Building a custom hook', () => {
     expect(mockRef.current.addEventListener).toHaveBeenCalledWith('mouseenter', expect.any(Function))
   })
 
+  it('registers a mouseleave event listener @on-mouse-leave', () => {
+
+    expect(mockRef.current.addEventListener).toHaveBeenCalledWith('mouseleave', expect.any(Function))
+  })
 })
