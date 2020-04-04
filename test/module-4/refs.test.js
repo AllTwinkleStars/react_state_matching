@@ -13,15 +13,15 @@ describe('TileSelector', () => {
   it('attaches the ref to the div @attach-ref', () => {
     const dd = container.getByText('99')
 
-    expect(container.queryByText('16')).toBe(null)
+    expect(container.queryByText('16'), 'Did you return null from the ternary?').toBe(null)
 
     fireEvent.mouseEnter(dd)
 
-    expect(container.queryByText('16')).toBeTruthy()
+    expect(container.queryByText('16'), 'Did you attach the ref to the right div?').toBeTruthy()
 
     fireEvent.mouseLeave(dd)
 
-    expect(container.queryByText('16')).toBe(null)
+    expect(container.queryByText('16'), 'Did you return null from the ternary?').toBe(null)
     
   })
 
