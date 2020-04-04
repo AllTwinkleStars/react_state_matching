@@ -25,26 +25,26 @@ describe('Building a custom hook', () => {
   it('calls useRef @create-a-ref', () => {
     useHover()
 
-    expect(React.useRef).toHaveBeenCalled()
+    expect(React.useRef, 'Did you call useRef?').toHaveBeenCalled()
   })
 
   it('calls useState @use-state-hook', () => {
     useHover()
 
-    expect(React.useState).toHaveBeenCalledWith(false)
+    expect(React.useState, 'Did you call useState?').toHaveBeenCalledWith(false)
   })
 
   it('returns the ref and hovered state @return-ref', () => {
     const [ref, hovered] = useHover()
 
-    expect(ref).toEqual(mockRef)
-    expect(hovered).toEqual('hovered')
+    expect(ref, 'Did you return the ref?').toEqual(mockRef)
+    expect(hovered, 'Did you return the hovered value?').toEqual('hovered')
   })
 
   it('calls useEffect @call-use-effect', () => {
     useHover()
 
-    expect(React.useEffect).toHaveBeenCalledWith(expect.any(Function))
+    expect(React.useEffect, 'Did you call useEffect()?').toHaveBeenCalledWith(expect.any(Function))
   })
 
   it('returns an anonymous fn @return-anon', () => {
@@ -53,18 +53,18 @@ describe('Building a custom hook', () => {
     const anon = React.useEffect.mock.calls[0][0]
     const anotherAnon = anon()
 
-    expect(typeof anotherAnon).toBe('function')
-    expect(anotherAnon.name).toBe('')
+    expect(typeof anotherAnon, 'Did you return an anonymous function?').toBe('function')
+    expect(anotherAnon.name, 'Did you return an anonymous function?').toBe('')
   })
 
   it('registers a mouseenter event listener @on-mouse-enter', () => {
 
-    expect(mockRef.current.addEventListener).toHaveBeenCalledWith('mouseenter', expect.any(Function))
+    expect(mockRef.current.addEventListener, 'Did you add the right event listener?').toHaveBeenCalledWith('mouseenter', expect.any(Function))
   })
 
   it('registers a mouseleave event listener @on-mouse-leave', () => {
 
-    expect(mockRef.current.addEventListener).toHaveBeenCalledWith('mouseleave', expect.any(Function))
+    expect(mockRef.current.addEventListener,  'Did you add the right event listener?').toHaveBeenCalledWith('mouseleave', expect.any(Function))
   })
 
   it('creates a callback for mouseenter @enter-callback', () => {
@@ -72,7 +72,7 @@ describe('Building a custom hook', () => {
     expect(mockRef.current.addEventListener).toHaveBeenCalledWith('mouseenter', expect.any(Function))
     expect(enter.name).toBe('enter')
     enter()
-    expect(setHovered).toHaveBeenCalledWith(true)
+    expect(setHovered, 'Did you pass the enter callback to addEventListener?').toHaveBeenCalledWith(true)
   })
 
   it('creates a callback for mouseleave @leave-callback', () => {
@@ -80,7 +80,7 @@ describe('Building a custom hook', () => {
     expect(mockRef.current.addEventListener).toHaveBeenCalledWith('mouseleave', expect.any(Function))
     expect(leave.name).toBe('leave')
     leave()
-    expect(setHovered).toHaveBeenCalledWith(false)
+    expect(setHovered,  'Did you pass the leave callback to addEventListener?').toHaveBeenCalledWith(false)
   })
 
   it('removes the mouseenter event listener @remove-mouseenter', () => {
@@ -88,8 +88,8 @@ describe('Building a custom hook', () => {
     const anotherAnon = anonCallback()
     anotherAnon()
     const enter = mockRef.current.removeEventListener.mock.calls[0][1]
-    expect(mockRef.current.removeEventListener).toHaveBeenCalledWith('mouseenter', expect.any(Function))
-    expect(enter.name).toBe('enter')
+    expect(mockRef.current.removeEventListener, 'Did you remove the mouseenter event listener?').toHaveBeenCalledWith('mouseenter', expect.any(Function))
+    expect(enter.name, 'Did you pass the enter callback to removeEventListener?').toBe('enter')
   })
 
   it('removes the mouseleave event listener @remove-mouseleave', () => {
@@ -97,7 +97,7 @@ describe('Building a custom hook', () => {
     const anotherAnon = anonCallback()
     anotherAnon()
     const leave = mockRef.current.removeEventListener.mock.calls[1][1]
-    expect(mockRef.current.removeEventListener).toHaveBeenCalledWith('mouseleave', expect.any(Function))
-    expect(leave.name).toBe('leave')
+    expect(mockRef.current.removeEventListener,  'Did you remove the mouseleave event listener?').toHaveBeenCalledWith('mouseleave', expect.any(Function))
+    expect(leave.name,  'Did you pass the leave callback to removeEventListener?').toBe('leave')
   })
 })
