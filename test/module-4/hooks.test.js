@@ -82,4 +82,22 @@ describe('Building a custom hook', () => {
     leave()
     expect(setHovered).toHaveBeenCalledWith(false)
   })
+
+  it('removes the mouseenter event listener @remove-mouseenter', () => {
+    const anonCallback = React.useEffect.mock.calls[0][0]
+    const anotherAnon = anonCallback()
+    anotherAnon()
+    const enter = mockRef.current.removeEventListener.mock.calls[0][1]
+    expect(mockRef.current.removeEventListener).toHaveBeenCalledWith('mouseenter', expect.any(Function))
+    expect(enter.name).toBe('enter')
+  })
+
+  it('removes the mouseleave event listener @remove-mouseleave', () => {
+    const anonCallback = React.useEffect.mock.calls[0][0]
+    const anotherAnon = anonCallback()
+    anotherAnon()
+    const leave = mockRef.current.removeEventListener.mock.calls[1][1]
+    expect(mockRef.current.removeEventListener).toHaveBeenCalledWith('mouseleave', expect.any(Function))
+    expect(leave.name).toBe('leave')
+  })
 })
