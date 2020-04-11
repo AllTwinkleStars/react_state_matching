@@ -2,7 +2,7 @@ import * as React from "react";
 
 function SvgTqfp32(props) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 118.181 118.214" {...props}>
+    <svg width="1em" height="1em" viewBox="0 0 118.181 118.214" {...props} style={{fontSize: '4em'}}>
       <g transform="translate(79.09 -150.398)">
         <g fill="none" stroke="#9e9e9e" strokeWidth={3}>
           <path d="M-59.09 186.101h-20M-59.09 235.41h-20M-59.09 228.365h-20M-59.09 221.321h-20M-59.09 214.277h-20M-59.09 207.233h-20M-59.09 200.19h-20M-59.09 193.145h-20" />
